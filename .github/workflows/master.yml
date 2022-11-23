@@ -23,10 +23,10 @@ jobs:
 
   test:
     runs-on: [self-hosted]
-    
+
     steps:
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test src\AspNetCoreAPI-GitHubAction.Test
 
   deploy:
     runs-on: [self-hosted]
