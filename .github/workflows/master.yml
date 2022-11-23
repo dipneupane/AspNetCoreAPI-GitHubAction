@@ -9,33 +9,28 @@ on:
 jobs:
   build:    
     runs-on: [self-hosted]
-
     steps:
     - uses: actions/checkout@v1
 
     - name: Set up .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.x'
+        dotnet-version: '6.0.x'
 
     - name: Build with dotnet
       run: dotnet build src\AspNetCoreAPI-GitHubAction.Api\AspNetCoreAPI-GitHubAction.Api.csproj --configuration Release
 
   test:
     runs-on: [self-hosted]
-
     steps:
     - name: Test
       run: dotnet test src\AspNetCoreAPI-GitHubAction.Test
 
   deploy:
     runs-on: [self-hosted]
-
     steps:
     - name: Project publish
       run: dotnet publish -c Release src\AspNetCoreAPI-GitHubAction.Api\AspNetCoreAPI-GitHubAction.Api.csproj -o ${{env.DOTNET_ROOT}}/AspNetCoreAPI
-      env: 
-        CI: ""
 
     - name: Deploy to IIS
       run: |
