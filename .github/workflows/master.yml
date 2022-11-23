@@ -9,6 +9,7 @@ on:
 jobs:
   build:    
     runs-on: [self-hosted]
+
     steps:
     - uses: actions/checkout@v1
 
@@ -21,13 +22,17 @@ jobs:
       run: dotnet build src\AspNetCoreAPI-GitHubAction.Api\AspNetCoreAPI-GitHubAction.Api.csproj --configuration Release
 
   test:
+    needs: build
     runs-on: [self-hosted]
+
     steps:
     - name: Test
       run: dotnet test src\AspNetCoreAPI-GitHubAction.Test
 
   deploy:
+    needs: test
     runs-on: [self-hosted]
+    
     steps:
     - name: Project publish
       run: dotnet publish -c Release src\AspNetCoreAPI-GitHubAction.Api\AspNetCoreAPI-GitHubAction.Api.csproj -o ${{env.DOTNET_ROOT}}/AspNetCoreAPI
