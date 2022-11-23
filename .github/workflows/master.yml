@@ -22,6 +22,8 @@ jobs:
       run: dotnet build src\AspNetCoreAPI-GitHubAction.Api\AspNetCoreAPI-GitHubAction.Api.csproj --configuration Release
 
   test:
+    runs-on: [self-hosted]
+    
     steps:
     - name: Test
       run: dotnet test --no-restore --verbosity normal
