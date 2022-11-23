@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreAPI-GitHubAction.Test", "..\AspNetCoreAPI-GitHubAction.Test\AspNetCoreAPI-GitHubAction.Test.csproj", "{7AC22783-037D-48DF-9F41-9B851715B663}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreAPI-GitHubAction.Test", "..\AspNetCoreAPI-GitHubAction.Test\AspNetCoreAPI-GitHubAction.Test.csproj", "{7AC22783-037D-48DF-9F41-9B851715B663}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreAPI-GitHubAction.Api", "AspNetCoreAPI-GitHubAction.Api.csproj", "{CC3D3925-EBB2-4384-9271-FA39D44B445F}"
 EndProject
