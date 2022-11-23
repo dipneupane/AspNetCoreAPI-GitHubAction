@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build-and-deploy:    
+  build:    
     runs-on: [self-hosted]
 
     steps:
@@ -16,14 +16,14 @@ jobs:
     - name: Set up .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0'
+        dotnet-version: '6.x'
 
     - name: Build with dotnet
       run: dotnet build src\AspNetCoreAPI-GitHubAction.Api\AspNetCoreAPI-GitHubAction.Api.csproj --configuration Release
-      env: 
-        CI: ""
 
-    - name: dotnet publish
+  deploy:
+    steps:
+    - name: Project publish
       run: dotnet publish -c Release src\AspNetCoreAPI-GitHubAction.Api\AspNetCoreAPI-GitHubAction.Api.csproj -o ${{env.DOTNET_ROOT}}/AspNetCoreAPI
       env: 
         CI: ""
