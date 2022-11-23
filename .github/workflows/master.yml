@@ -22,6 +22,8 @@ jobs:
       run: dotnet build src\AspNetCoreAPI-GitHubAction.Api\AspNetCoreAPI-GitHubAction.Api.csproj --configuration Release
 
   deploy:
+    runs-on: [self-hosted]
+
     steps:
     - name: Project publish
       run: dotnet publish -c Release src\AspNetCoreAPI-GitHubAction.Api\AspNetCoreAPI-GitHubAction.Api.csproj -o ${{env.DOTNET_ROOT}}/AspNetCoreAPI
